@@ -1,2 +1,2 @@
-# Backend clon del Twitter
+# Backend clon de Twitter
 Proyecto realizado con goland y mongoDB.
