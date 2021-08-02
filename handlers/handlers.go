@@ -2,6 +2,8 @@ package handlers
 
 import (
 	"github.com/gorilla/mux"
+	"github.com/ojacome/twittor/middlewares"
+	"github.com/ojacome/twittor/routers"
 	"github.com/rs/cors"
 	"log"
 	"net/http"
@@ -16,7 +18,9 @@ func Manejadores() {
 	}
 
 	router := mux.NewRouter()
+
+	router.HandleFunc("/registro", middlewares.CheckBD(routers.Registro)).Methods("POST")
+
 	handler := cors.AllowAll().Handler(router)
 	log.Fatal(http.ListenAndServe(":"+PORT, handler))
-
 }
